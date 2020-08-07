@@ -14,7 +14,8 @@ router.post("/", async (req, res) => {
 
 router.get("/", async (req, res) => {
     const users = await nameSchema.find()
-    const num = Math.floor(Math.random() * ((users.length - 1) - 0)) + 0;
+    const num = Math.floor(Math.random() * (users.length - 1));
+   // const num = Math.floor(Math.random() * ((users.length - 1) - 0)) + 0;
     await nameSchema.findByIdAndDelete(users[num]._id)
     res.send(users[num])
 
